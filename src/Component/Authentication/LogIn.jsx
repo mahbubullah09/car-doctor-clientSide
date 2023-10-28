@@ -1,16 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
+
 import img from "../../assets/images/login/login.svg"
 
-const SingUp = () => {
+
+const LogIn = () => {
 
 
     const handleData = event =>{
         event.preventDefault();
-        const name = event.target.name.value;
+      
         const email = event.target.email.value;
         const password= event.target.password.value;
 
-        console.log(name,email,password);
+        console.log(email,password);
         
 
     }
@@ -29,22 +31,11 @@ const SingUp = () => {
 
             <div className="rounded  mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 border border-1 p-10">
 
-                <h2 className=" font-bold text-4xl text-[#444444] text-center mb-8 ">Sing Up</h2>
+                <h2 className=" font-bold text-4xl text-[#444444] text-center mb-8 ">Log In</h2>
               <form onSubmit={handleData}>
                
 
-              <p className="mb-3">Name</p>
-              
-              <div className="relative mb-6" data-te-input-wrapper-init>
-                   
-                   <input
-                     type="text"
-                     className="border block h-12 w-full rounded border-1 bg-transparent px-3 py-[0.32rem] "
-                     name="name"
-                     placeholder="Name"
-                   />
-                   
-                 </div>
+             
 
                  <p className="mb-3">Email</p>
 
@@ -134,11 +125,11 @@ const SingUp = () => {
                   </button>
                   <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
                     Don't have an account?
-                    <Link to={'/login'}
+                    <Link to={'/singup'}
                    
                       className="text-danger text-[#FF3811]  font-bold transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
                     >
-                     LogIn
+                     Sing Up
                     </Link>
                   </p>
                 </div>
@@ -151,4 +142,4 @@ const SingUp = () => {
   );
 };
 
-export default SingUp;
+export default LogIn;

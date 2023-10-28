@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layouts1 from './Component/Layouts/Layouts1';
 import Home from './Component/home/Home';
 import SingUp from './Component/Authentication/SingUp';
+import LogIn from './Component/Authentication/LogIn';
 
 
 
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
   {
     path:"/singup",
     element:<SingUp/>
-  }
+  },
+  {
+    path:"/login",
+    element:<LogIn/>
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
