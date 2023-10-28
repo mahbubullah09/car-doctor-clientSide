@@ -7,6 +7,7 @@ import Layouts1 from './Component/Layouts/Layouts1';
 import Home from './Component/home/Home';
 import SingUp from './Component/Authentication/SingUp';
 import LogIn from './Component/Authentication/LogIn';
+import Error from './Component/ErrorPage/Error';
 
 
 
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layouts1/>,
+    errorElement:<Error/>,
     children: [
       {
         path: '/',
