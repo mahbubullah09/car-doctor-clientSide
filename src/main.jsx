@@ -5,6 +5,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layouts1 from './Component/Layouts/Layouts1';
 import Home from './Component/home/Home';
+import SingUp from './Component/Authentication/SingUp';
 
 
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:"/singup",
+    element:<SingUp/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
