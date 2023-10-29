@@ -8,6 +8,7 @@ import Home from './Component/home/Home';
 import SingUp from './Component/Authentication/SingUp';
 import LogIn from './Component/Authentication/LogIn';
 import Error from './Component/ErrorPage/Error';
+import AuthProvider from './Component/Provider/AuthProvider';
 
 
 
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+  <AuthProvider>
+  <RouterProvider router={router} />
+  </AuthProvider>
   </React.StrictMode>,
 )
