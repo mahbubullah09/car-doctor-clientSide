@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:import.meta.env.Mahbub_apiKey,
-  authDomain:import.meta.env.Mahbub_authDomain,
-  projectId:import.meta.env.Mahbub_projectId,
-  storageBucket:import.meta.env.Mahbub_storageBucket,
-  messagingSenderId:import.meta.env.Mahbub_messagingSenderId,
-  appId:import.meta.env.Mahbub_appId
+  apiKey: "AIzaSyCgtMIWPevuNNjpy4S0wMY5XFeL12hXgbA",
+  authDomain: "car-doctor-2f426.firebaseapp.com",
+  projectId: "car-doctor-2f426",
+  storageBucket: "car-doctor-2f426.appspot.com",
+  messagingSenderId: "443218651890",
+  appId: "1:443218651890:web:79da6f499733d9f368fe6b"
 };
 
 // Initialize Firebase

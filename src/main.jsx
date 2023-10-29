@@ -9,6 +9,7 @@ import SingUp from './Component/Authentication/SingUp';
 import LogIn from './Component/Authentication/LogIn';
 import Error from './Component/ErrorPage/Error';
 import AuthProvider from './Component/Provider/AuthProvider';
+import Checkout from './Component/Checkout/Checkout';
 
 
 
@@ -21,7 +22,14 @@ const router = createBrowserRouter([
       {
         path: '/',
         element:<Home/>,
-      }
+      },
+      {
+        path:"/checkout/:id",
+        element:<Checkout/>,
+        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        
+        
+      },
     ]
   },
   {
