@@ -85,7 +85,7 @@ const Bookings = () => {
   }
   return (
     <div>
-      <h2>total bookings {bookings.length}</h2>
+      
 
       <div className="overflow-x-auto">
         <table className="table">

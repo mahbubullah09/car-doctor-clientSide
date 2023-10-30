@@ -81,12 +81,13 @@ const Navbar = () => {
           <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
         </NavLink>
       </ul>
-     
+      {
+      user? 
+      <>
       <ul className="py-1 relative group">
-       {
-        user? 
-      <div className="flex gap-4">
-   <ul>
+          
+     
+   
    <NavLink
       to="/bookings"
       className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]  " : "text-black hover:text-[#FF3811] ")}
@@ -97,7 +98,9 @@ const Navbar = () => {
       <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
     </NavLink>
    </ul>
-   <ul>
+
+
+   <ul className="py-1 relative group">
    <NavLink
         onClick={handleLogout}
         className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]  " : "text-black hover:text-[#FF3811] ")}
@@ -108,9 +111,10 @@ const Navbar = () => {
         <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
       </NavLink>
    </ul>
-      </div>
+   </>
+    
       :
-
+  <ul className="py-1 relative group">
       <NavLink
       to="/login"
       className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]  " : "text-black hover:text-[#FF3811] ")}
@@ -120,10 +124,14 @@ const Navbar = () => {
       <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
       <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
     </NavLink>
-
+    </ul>
+   
        }
-      </ul>
-    </div>
+      
+    
+
+      </div>
+  
   );
 
   return (
