@@ -10,6 +10,8 @@ import LogIn from './Component/Authentication/LogIn';
 import Error from './Component/ErrorPage/Error';
 import AuthProvider from './Component/Provider/AuthProvider';
 import Checkout from './Component/Checkout/Checkout';
+import Bookings from './Component/Booking/Bookings';
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 
 
 
@@ -27,7 +29,13 @@ const router = createBrowserRouter([
         path:"/checkout/:id",
         element:<Checkout/>,
         loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
-        
+  
+      },
+      {
+        path:'/bookings',
+        element:<PrivateRoute>
+          <Bookings/>,
+        </PrivateRoute>
         
       },
     ]

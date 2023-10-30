@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import img from "../../assets/images/login/login.svg"
 import SocialLogIN from "./SocialLogIN";
 import { useContext } from "react";
@@ -9,7 +9,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const SingUp = () => {
   const { createUsers} = useContext(AuthContext);
-
+const navigate = useNavigate();
 
     const handleData = event =>{
         event.preventDefault();
@@ -23,6 +23,7 @@ const SingUp = () => {
         .then(result =>{
           const user = result.user
           console.log(user)
+          navigate(location?.state ? location.state : '/')
         })
         .catch(error =>
           console.log(error))

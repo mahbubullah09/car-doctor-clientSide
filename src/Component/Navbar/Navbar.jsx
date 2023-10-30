@@ -1,8 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineShopping } from "react-icons/ai";
 import logo from "../../assets/logo.svg";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
+
 
 const Navbar = () => {
+
+  const {user, logout} = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogout = () =>{
+
+    logout()
+    .then(() => {})
+    .cath(error => console.log(error))
+  }
   const navLink = (
     <div className=" gap-4 flex flex-col lg:flex-row ">
       <ul className="py-1 relative group ">
@@ -27,7 +41,7 @@ const Navbar = () => {
             isActive ? "text-black hover:text-[#FF3811] " : " text-black hover:text-[#FF3811]  "
           }
         >
-          {" "}
+          
           About
           <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
           <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
@@ -39,7 +53,7 @@ const Navbar = () => {
           to="/services"
           className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]   " : "text-black hover:text-[#FF3811] ")}
         >
-          {" "}
+         
           Services
           <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
           <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
@@ -50,7 +64,7 @@ const Navbar = () => {
           to="/blog"
           className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]   " : "text-black hover:text-[#FF3811] ")}
         >
-          {" "}
+       
           Blog
           <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
           <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
@@ -61,11 +75,53 @@ const Navbar = () => {
           to="/contact"
           className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]  " : "text-black hover:text-[#FF3811] ")}
         >
-          {" "}
+          
           Contact
           <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
           <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
         </NavLink>
+      </ul>
+     
+      <ul className="py-1 relative group">
+       {
+        user? 
+      <div className="flex gap-4">
+   <ul>
+   <NavLink
+      to="/bookings"
+      className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]  " : "text-black hover:text-[#FF3811] ")}
+    >
+      
+      Bookings
+      <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
+      <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
+    </NavLink>
+   </ul>
+   <ul>
+   <NavLink
+        onClick={handleLogout}
+        className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]  " : "text-black hover:text-[#FF3811] ")}
+      >
+     
+        <button  onClick={handleLogout}>Log Out</button>
+        <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
+        <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
+      </NavLink>
+   </ul>
+      </div>
+      :
+
+      <NavLink
+      to="/login"
+      className={({ isActive }) => (isActive ? " text-black hover:text-[#FF3811]  " : "text-black hover:text-[#FF3811] ")}
+    >
+      
+      Login
+      <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
+      <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-[#FF3811] group-hover:w-1/2 group-hover:transition-all"></span>
+    </NavLink>
+
+       }
       </ul>
     </div>
   );
@@ -100,8 +156,8 @@ const Navbar = () => {
           </div>
           <img className="w-16" src={logo} alt="" />
         </div>
-        <div className="navbar-center hidden lg:flex  ">
-          <ul className="menu menu-horizontal px-4 ">{navLink}</ul>
+        <div className="navbar-center  hidden lg:flex  ">
+          <ul className="menu  px-4 ">{navLink}</ul>
         </div>
         <div className="navbar-end"></div>
         <div>

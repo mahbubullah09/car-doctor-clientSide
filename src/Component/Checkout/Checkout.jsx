@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { json, useLoaderData } from "react-router-dom";
+import {useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -16,7 +16,7 @@ const Checkout = () => {
     const First_Name = event.target.first_name.value;
     const Last_Name = event.target.last_name.value;
     const phone = event.target.phone.value;
-    const email = event.target.phone.value;
+    const email = event.target.email.value;
     const date = event.target.date.value;
     const size = event.target.size.value;
 
@@ -30,7 +30,8 @@ const Checkout = () => {
       title,
       price,
       size,
-      date
+      date,
+      
     };
     console.log(order);
 
