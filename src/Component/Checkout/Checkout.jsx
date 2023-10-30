@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { json, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Checkout = () => {
   const service = useLoaderData();
@@ -16,18 +17,44 @@ const Checkout = () => {
     const Last_Name = event.target.last_name.value;
     const phone = event.target.phone.value;
     const email = event.target.phone.value;
+    const date = event.target.date.value;
+    const size = event.target.size.value;
 
     const order = {
       First_Name,
       Last_Name,
       phone,
       email,
-      _id,
+     service_id:  _id,
       img,
       title,
-      price
+      price,
+      size,
+      date
     };
     console.log(order);
+
+    fetch('http://localhost:5000/orders', {
+        method: 'POST',
+        headers:{
+            'content-type' : 'application/json'
+        },
+        body: JSON.stringify(order)
+    })
+    .then(res => res.json())
+    .then(data =>{
+        console.log(data);
+
+        if(data.insertedId){
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+    })
   };
   return (
     <div>
@@ -69,6 +96,26 @@ const Checkout = () => {
                 name="email"
                 placeholder="Youre Email"
                 defaultValue={user?.email}
+              />
+            </div>
+          </div>
+          <div className="flex justify-between items-center gap-8">
+            <div className="relative mb-6 w-full" data-te-input-wrapper-init>
+              <input
+                type="date"
+                className="border block h-12 w-full rounded border-1 bg-white px-3 py-[0.32rem] "
+                name="date"
+               
+              />
+            </div>
+
+            <div className="relative mb-6 w-full" data-te-input-wrapper-init>
+              <input
+                type="text"
+                className="border block h-12 w-full rounded border-1 bg-white px-3 py-[0.32rem] "
+                name="size"
+                placeholder="Size"
+               
               />
             </div>
           </div>
