@@ -14,7 +14,9 @@ const Navbar = () => {
   const handleLogout = () =>{
 
     logout()
-    .then(() => {})
+    .then(() => {
+      <Link to={'/'}></Link>
+    })
     .cath(error => console.log(error))
   }
   const navLink = (

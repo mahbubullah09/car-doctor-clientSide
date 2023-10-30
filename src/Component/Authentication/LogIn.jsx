@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import img from "../../assets/images/login/login.svg"
 import SocialLogIN from "./SocialLogIN";
@@ -8,6 +8,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const LogIn = () => {
  const  {singin} = useContext(AuthContext);
+
+ const location = useLocation();
+
 
  const navigate = useNavigate();
 
@@ -21,7 +24,8 @@ const LogIn = () => {
         .then(result =>{
           const user = result.user
           console.log(user)
-          navigate(location?.state ? location.state : '/')
+          navigate(location.state ? location.state : '/')
+        
         })
         .catch(error => console.log(error))
 

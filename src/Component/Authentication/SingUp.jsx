@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/images/login/login.svg"
 import SocialLogIN from "./SocialLogIN";
 import { useContext } from "react";
@@ -9,6 +9,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const SingUp = () => {
   const { createUsers} = useContext(AuthContext);
+ const location = useLocation();
+
+
 const navigate = useNavigate();
 
     const handleData = event =>{
